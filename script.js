@@ -14,6 +14,8 @@ const observer = new IntersectionObserver((entries) => {
   document.querySelectorAll('.client-card').forEach(card => {
     observer.observe(card);
   });
+
+  
   
   // Load AOS script dynamically and initialize it
 const loadAOS = () => {
@@ -42,9 +44,30 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   
 
-  const toggle = document.getElementById("menu-toggle");
-  const nav = document.getElementById("navbar");
+  const toggle = document.getElementById('menu-toggle');
+  const navbar = document.getElementById('navbar');
 
-  toggle.addEventListener("click", () => {
-    nav.classList.toggle("show");
+  toggle.addEventListener('click', () => {
+    navbar.classList.toggle('active');
+  });
+
+
+  const scrollArea = document.getElementById("clientScroller");
+  const scrollBtn = document.getElementById("scrollToggle");
+
+  let isPaused = false;
+
+  scrollBtn.addEventListener("click", () => {
+    isPaused = !isPaused;
+    scrollArea.classList.toggle("paused", isPaused);
+    scrollBtn.textContent = isPaused ? "Play" : "Pause";
+  });
+
+  // Optional: auto-pause on mobile touch
+  scrollArea.addEventListener("touchstart", () => {
+    scrollArea.classList.add("paused");
+  });
+
+  scrollArea.addEventListener("touchend", () => {
+    if (!isPaused) scrollArea.classList.remove("paused");
   });

@@ -21,18 +21,20 @@
 
 </head>
 <body>
-  <header>
+  <header class="main-header">
     <div class="nav-container">
       <div class="logo">
         <img src="assets/logos/final.png" alt="Sujit Enterprises Logo" />
+        <h1>Sujit Enterprises</h1>
       </div>
       <div class="menu-toggle" id="menu-toggle">
         <i class="fas fa-bars"></i>
       </div>
-      <nav id="navbar">
-        <ul>
+      <nav id="navbar" class="navbar">
+        <ul class="nav-links">
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
           <li><a href="#clients">Clients</a></li>
           <li><a href="#testimonials">Feedback</a></li>
           <li><a href="#contact">Contact</a></li>
@@ -113,7 +115,7 @@
   <section id="clients" class="section">
     <div class="container">
       <h2>Our Trusted Clients</h2>
-      <div class="clients-auto-scroll">
+      <div class="clients-auto-scroll" id="clientScroller">
         <div class="clients-track">
           <div class="client-card">
             <img src="assets/logos/Rising.jpeg" alt="Rising Hospital Logo" />
